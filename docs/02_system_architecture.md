@@ -14,15 +14,15 @@ The frontend acts purely as a client for data input and visualization.
 
 ```mermaid
 flowchart TB
-    WC[Web Client<br/>(Students / Coordinators)]
-    API[API Layer + Auth]
-    ASL[Application Service Layer]
+    WC["Web Client (Students & Coordinators)"]
+    API["API Layer + Authentication"]
+    ASL["Application Service Layer"]
 
-    EE[Eligibility Engine]
-    AI[AI Assist<br/>(Optional)]
-    EX[Export Service<br/>(Sheets API)]
+    EE["Eligibility Engine"]
+    AI["AI Assist (Optional)"]
+    EX["Export Service (Sheets API)"]
 
-    DB[(Firestore)]
+    DB["Firestore Database"]
 
     WC --> API
     API --> ASL
@@ -33,6 +33,7 @@ flowchart TB
 
     EE --> DB
 ```
+
 
 This separation ensures clarity of responsibility, auditability, and controlled data flow.
 
