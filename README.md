@@ -1,95 +1,232 @@
-# Campus Opportunity & Internship Management Platform
+# 🚀 NITA Placement Management System
 
-A campus-first platform to manage on-campus internship and placement opportunities using a structured, auditable workflow — while retaining **Google Sheets as the final institutional output**.
+A full-stack placement automation platform for **NIT Agartala** that manages the complete on‑campus recruitment lifecycle — from eligibility filtering to multi‑round selections, analytics, and Google‑powered workflows.
 
-This repository follows a **documentation-first** approach. Architecture and system contracts are finalized before implementation.
-
----
-
-## Project Status
-
-- Architecture: Finalized
-- Documentation: Complete
-- Implementation: Pending / In Progress
+Built as a **hackathon‑grade + production‑grade** system.
 
 ---
 
-## Core Principles
+## 🧠 Why this exists
+Placement cells struggle with:
+- Manual eligibility filtering  
+- CV collection chaos  
+- Round‑wise tracking  
+- Poor communication  
+- Zero analytics  
 
-- Google Sheets is the final institutional output
-- Firestore is the operational datastore
-- No persistent student academic profiles
-- Each application is a fresh data snapshot
-- Eligibility rules are frozen after publish
-- AI is assistive only, never authoritative
-- Export is idempotent and auditable
-- Frontend is logic-free; backend owns correctness
-
----
-
-## Documentation Index
-
-All system design and decisions are documented under the `docs/` directory.
-
-### Foundations
-- [`00_overview.md`](docs/00_overview.md) — System overview and scope
-- [`01_problem_context.md`](docs/01_problem_context.md) — Real-world constraints and motivation
-- [`02_system_architecture.md`](docs/02_system_architecture.md) — High-level architecture and principles
-- [`03_component_design.md`](docs/03_component_design.md) — Component responsibilities and boundaries
-
-### Core System Contracts
-- [`04_data_models.md`](docs/04_data_models.md) — Firestore schemas and mutability rules
-- [`05_api_contracts.md`](docs/05_api_contracts.md) — Backend API contracts
-
-### Runtime Behavior
-- [`06_data_flow_diagrams.md`](docs/06_data_flow_diagrams.md) — Mermaid flow diagrams
-- [`07_export_pipeline.md`](docs/07_export_pipeline.md) — Google Sheets export mechanics
-
-### Governance & Safety
-- [`08_ai_usage_and_limits.md`](docs/08_ai_usage_and_limits.md) — AI boundaries and human-in-the-loop guarantees
-- [`09_security_and_roles.md`](docs/09_security_and_roles.md) — Role model and access control
-- [`10_scalability_and_failure_modes.md`](docs/10_scalability_and_failure_modes.md) — Load assumptions and failure handling
-
-### Forward-Looking
-- [`11_future_scope.md`](docs/11_future_scope.md) — Explicit future extensions and non-goals
+This system replaces all of that with a **secure, role‑based, real‑time web platform**.
 
 ---
 
-## Repository Structure
+## 🧩 High Level Architecture
 
-```
-campus-opportunity-platform/
-├── docs/
-│   ├── 00_overview.md
-│   ├── 01_problem_context.md
-│   ├── 02_system_architecture.md
-│   ├── 03_component_design.md
-│   ├── 04_data_models.md
-│   ├── 05_api_contracts.md
-│   ├── 06_data_flow_diagrams.md
-│   ├── 07_export_pipeline.md
-│   ├── 08_ai_usage_and_limits.md
-│   ├── 09_security_and_roles.md
-│   ├── 10_scalability_and_failure_modes.md
-│   └── 11_future_scope.md
-└── README.md
+```mermaid
+flowchart LR
+    A[React Frontend] -->|JWT + REST| B[Express API]
+    B --> C[Prisma ORM]
+    C --> D[(SQLite DB)]
+
+    B --> E[Google APIs]
+    E --> F[Gmail API]
+    E --> G[Google Sheets API]
+    E --> H[Gemini AI]
 ```
 
 ---
 
-## Next Phase
+## 👥 Roles
 
-The next phase of this project focuses on **implementation**, starting backend-first with:
-
-- Auth and role enforcement
-- Opportunity lifecycle APIs
-- Eligibility engine
-- Google Sheets export service
-
-Implementation will strictly follow the contracts defined in the documentation above.
+| Role | Capabilities |
+|------|--------------|
+| Student | Apply, manage CVs, track rounds, ATS scoring |
+| Coordinator | Post drives, run rounds, email students, export Sheets |
+| CCD Admin | Users, students, locks, analytics |
+| CCD Member | Read‑only analytics |
 
 ---
 
-## License
+## 🔐 Authentication Flow
 
-To be decided.
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant F as Frontend
+    participant B as Backend
+
+    U->>F: Login credentials
+    F->>B: POST /api/auth/login
+    B->>B: Validate & hash
+    B->>F: JWT Token
+    F->>F: Store token
+    F->>B: All future requests include JWT
+```
+
+---
+
+## 🎓 Student Journey
+
+```mermaid
+flowchart TD
+    A[Login] --> B[View Eligible Jobs]
+    B --> C[Select CV]
+    C --> D[Apply]
+    D --> E[Track Rounds]
+    E --> F[Notifications]
+    C --> G[Check ATS Score]
+    G --> H[Gemini AI]
+```
+
+---
+
+## 🧑‍💼 Coordinator Workflow
+
+```mermaid
+flowchart TD
+    A[Create Post] --> B[Set Eligibility]
+    B --> C[Students Apply]
+    C --> D[Export to Google Sheets]
+    C --> E[Export CSV]
+    D --> F[Run Rounds]
+    F --> G[Email Selected Students]
+```
+
+---
+
+## 🛡 CCD Admin Control
+
+```mermaid
+flowchart TD
+    A[Upload Students] --> B[Manage Profiles]
+    B --> C[Lock / Unlock]
+    C --> D[View Analytics]
+```
+
+---
+
+## 🌐 Google‑Powered Hackathon Features
+
+These features were added as **prototype demos** to showcase how Google tools can transform placement workflows.
+
+> ⚠️ These are proof‑of‑concept features — designed to show **vision & capability**, not mass deployment.
+
+### 📧 1. Email Notifications (Gmail API)
+Coordinators can send **automated emails** to:
+- Students selected for next round  
+- Students rejected  
+
+Uses **Google Gmail API** for:
+- Authenticated sending
+- Real inbox delivery
+- Hackathon‑grade integration
+
+---
+
+### 📊 2. Export to Google Sheets
+Instead of downloading CSVs, coordinators can:
+
+- Export applicant data directly to **Google Sheets**
+- Share live sheets with companies
+- Auto‑generate columns based on selected student fields
+
+Uses:
+- **Google Sheets API**
+- OAuth‑based authenticated write access
+
+This replaces Excel and enables **real‑time collaboration**.
+
+---
+
+### 🤖 3. Resume ATS Scoring (Gemini AI)
+
+Students can paste their **Google Drive CV link** and:
+- System downloads the resume
+- Sends it to **Gemini AI**
+- Gets an **ATS compatibility score**
+- Shows feedback on how well the CV matches job descriptions
+
+This demonstrates how **AI‑driven placement guidance** can be integrated.
+
+Uses:
+- **Google Gemini API**
+- Resume parsing + semantic analysis
+
+---
+
+## 📊 Analytics Provided
+
+- Total students  
+- Dream / Standard / Normal placed  
+- Branch‑wise placement %  
+- Locked students  
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React 18  
+- TypeScript  
+- Vite  
+- Tailwind CSS  
+
+### Backend
+- Node.js  
+- Express  
+- TypeScript  
+- Prisma ORM  
+- SQLite  
+- JWT Authentication  
+
+### Google APIs (Hackathon Demos)
+- Gmail API  
+- Google Sheets API  
+- Gemini AI  
+
+---
+
+## 🏗 Local Setup
+
+```bash
+git clone <repo>
+cd backend
+npm install
+cp .env.example .env
+npx prisma migrate dev
+npm run dev
+```
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🔐 Security
+
+- bcrypt password hashing  
+- JWT authentication  
+- Role‑based route guards  
+- Server‑side eligibility checks  
+- Audit logging  
+
+---
+
+## 📌 Production‑Grade Features
+
+✔ One‑student‑one‑application rule  
+✔ Eligibility revalidation on edits  
+✔ Multi‑round hiring  
+✔ CSV + Google Sheets export  
+✔ Bulk student upload  
+✔ Email notifications  
+✔ AI‑based resume analysis  
+
+---
+
+## 👤 Author
+
+**Shivesh Deogharia**  
+Electrical Engineering — NIT Agartala  
+Focused on building **high‑impact real‑world software systems**
