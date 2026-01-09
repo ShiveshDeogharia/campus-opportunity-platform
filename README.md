@@ -228,5 +228,4 @@ npm run dev
 ## 👤 Author
 
 **Shivesh Deogharia**  
-Electrical Engineering — NIT Agartala  
-Focused on building **high‑impact real‑world software systems**
+
