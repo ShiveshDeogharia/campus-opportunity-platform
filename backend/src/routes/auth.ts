@@ -24,7 +24,7 @@ router.post("/login", async (req: Request, res: Response) => {
       where: { loginId },
     });
 
-    if (!user || user.role !== role) {
+    if (!user || user.role !== role.toUpperCase()) {
       res.status(401).json({ message: "Invalid credentials" });
       return;
     }
