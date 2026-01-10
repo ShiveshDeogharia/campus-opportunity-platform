@@ -6,6 +6,17 @@ Built as a **hackathon‑grade + production‑grade** system.
 
 ---
 
+## 🧾 In 30 seconds
+
+This platform allows:
+- Students to apply, track rounds, and analyze their resumes with AI
+- Coordinators to manage drives, export live data to Google Sheets, and send emails
+- CCD admins to control, lock, and analyze placements across the institute
+
+It replaces spreadsheets, emails, and manual filtering with a single secure system.
+
+---
+
 ## 🧠 Why this exists
 Placement cells struggle with:
 - Manual eligibility filtering  
@@ -15,6 +26,20 @@ Placement cells struggle with:
 - Zero analytics  
 
 This system replaces all of that with a **secure, role‑based, real‑time web platform**.
+
+---
+
+## ✨ What makes this different
+
+Unlike typical placement portals or CRUD dashboards, this system provides:
+
+- **End-to-end hiring lifecycle** (eligibility → apply → rounds → communication → analytics)
+- **Live Google integrations** instead of fake CSV workflows
+- **AI-powered ATS scoring** for students
+- **Role-based real-world permissions** (Student, Coordinator, CCD, Admin)
+- **Production-grade auth, rules, and locks**
+
+This was built to feel like an **actual university placement system**, not a demo app.
 
 ---
 
@@ -38,6 +63,37 @@ Click the image above to watch the full project walkthrough.
 </p>
 
 
+---
+
+## 🛠 Tech Stack
+
+### 🎨 Frontend
+<p>
+  <img src="https://img.shields.io/badge/React-18-20232A?style=flat&logo=react&logoColor=61DAFB"/>
+  <img src="https://img.shields.io/badge/TypeScript-20232A?style=flat&logo=typescript&logoColor=3178C6"/>
+  <img src="https://img.shields.io/badge/Vite-20232A?style=flat&logo=vite&logoColor=646CFF"/>
+  <img src="https://img.shields.io/badge/Tailwind-20232A?style=flat&logo=tailwindcss&logoColor=06B6D4"/>
+</p>
+
+### ⚙️ Backend
+<p>
+  <img src="https://img.shields.io/badge/Node.js-20232A?style=flat&logo=node.js&logoColor=339933"/>
+  <img src="https://img.shields.io/badge/Express-20232A?style=flat&logo=express&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prisma-20232A?style=flat&logo=prisma&logoColor=2D3748"/>
+  <img src="https://img.shields.io/badge/SQLite-20232A?style=flat&logo=sqlite&logoColor=003B57"/>
+  <img src="https://img.shields.io/badge/JWT-20232A?style=flat&logo=jsonwebtokens&logoColor=white"/>
+</p>
+
+### 🔗 Google & AI
+<p>
+  <img src="https://img.shields.io/badge/Gemini%20AI-20232A?style=flat&logo=google&logoColor=4285F4"/>
+  <img src="https://img.shields.io/badge/Gmail%20API-20232A?style=flat&logo=gmail&logoColor=EA4335"/>
+  <img src="https://img.shields.io/badge/Google%20Sheets-20232A?style=flat&logo=googlesheets&logoColor=34A853"/>
+</p>
+
+
+---
+
 ## 🧩 High Level Architecture
 
 ```mermaid
@@ -51,6 +107,20 @@ flowchart LR
     E --> G[Google Sheets API]
     E --> H[Gemini AI]
 ```
+
+---
+
+## 🧩 Core Capabilities
+
+| Area | What it supports |
+|------|------------------|
+| Applications | Multi-CV, eligibility-based, one-student-one-apply |
+| Hiring | Multi-round, shortlisting, locking |
+| Communication | Gmail API based automated emails |
+| Data | CSV + Google Sheets live export |
+| AI | Resume ATS scoring using Gemini |
+| Security | JWT, roles, server-side checks |
+| Analytics | Branch-wise & category-wise placement stats |
 
 ---
 
@@ -181,25 +251,6 @@ Uses:
 
 ---
 
-<p align="center">
-  <!-- Frontend -->
-  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white"/>
-
-  <!-- Backend -->
-  <img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white"/>
-  <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white"/>
-  <img src="https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white"/>
-
-  <!-- AI & Google -->
-  <img src="https://img.shields.io/badge/Gemini%20AI-4285F4?logo=google&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Gmail%20API-EA4335?logo=gmail&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Google%20Sheets-34A853?logo=googlesheets&logoColor=white"/>
-</p>
 
 
 ## 🏗 Local Setup
@@ -243,7 +294,17 @@ npm run dev
 
 ---
 
+## 🔮 Future Scope
+
+- PostgreSQL for large-scale deployments  
+- Company dashboards  
+- Interview scheduling  
+- Resume recommendations  
+- Drive-wise AI shortlisting  
+
+---
+
 ## 👤 Author
 
-**Shivesh Deogharia**  
+Built with ❤️ by **Shivesh Deogharia**  
 
