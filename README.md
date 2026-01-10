@@ -29,6 +29,15 @@ This system replaces all of that with a **secure, role‑based, real‑time web 
 Click the image above to watch the full project walkthrough.
 
 
+## 🚀 Live Application
+
+<p align="center">
+  <a href="https://campus-opportunity-platform.vercel.app/" target="_blank">
+    <strong>👉 Click here to try the live app</strong>
+  </a>
+</p>
+
+
 ## 🧩 High Level Architecture
 
 ```mermaid
@@ -172,28 +181,26 @@ Uses:
 
 ---
 
-## 🛠 Tech Stack
+<p align="center">
+  <!-- Frontend -->
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white"/>
 
-### Frontend
-- React 18  
-- TypeScript  
-- Vite  
-- Tailwind CSS  
+  <!-- Backend -->
+  <img src="https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Express-000000?logo=express&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Prisma-2D3748?logo=prisma&logoColor=white"/>
+  <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JWT-000000?logo=jsonwebtokens&logoColor=white"/>
 
-### Backend
-- Node.js  
-- Express  
-- TypeScript  
-- Prisma ORM  
-- SQLite  
-- JWT Authentication  
+  <!-- AI & Google -->
+  <img src="https://img.shields.io/badge/Gemini%20AI-4285F4?logo=google&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Gmail%20API-EA4335?logo=gmail&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Google%20Sheets-34A853?logo=googlesheets&logoColor=white"/>
+</p>
 
-### Google APIs (Hackathon Demos)
-- Gmail API  
-- Google Sheets API  
-- Gemini AI  
-
----
 
 ## 🏗 Local Setup
 
