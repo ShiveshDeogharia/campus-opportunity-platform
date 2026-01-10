@@ -18,6 +18,17 @@ This system replaces all of that with a **secure, role‑based, real‑time web 
 
 ---
 
+## 🎥 Project Demo
+
+<p align="center">
+  <a href="https://youtu.be/uCGexePamX4">
+    <img src="https://img.youtube.com/vi/uCGexePamX4/maxresdefault.jpg" width="80%" />
+  </a>
+</p>
+
+Click the image above to watch the full project walkthrough.
+
+
 ## 🧩 High Level Architecture
 
 ```mermaid
